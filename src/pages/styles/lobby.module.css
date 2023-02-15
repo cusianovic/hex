@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+:root{
+    font-family: 'Titillium Web', sans-serif;
+  }
+
+html{
+    margin: 0;
+  }
+  
+body{
+    margin: 0;
+}
+
+.lobbyHeader{
+    position: absolute; 
+    align-self: start; 
+    justify-self: center;
+    padding-top: 20px;
+    font-size: 32px;
+
+}

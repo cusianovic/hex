@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap');
+
+:root{
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.container {
+  padding: 0 2rem;
+}
+
+
+
+.main {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  font-size: 80px;
+}
+
+.buttonContainer{
+  padding-top: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.buttonContainer > div{
+  padding: 10px;
+}
+
+
+.Button{
+  color: black;
+  text-transform: none;
+  padding: 40px;
+  width: 120px;
+  height: 35px;
+}

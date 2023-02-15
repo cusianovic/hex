@@ -1,0 +1,68 @@
+html{
+  margin: 0;
+}
+
+body{
+  margin: 0;
+}
+
+
+:root{
+  --row: 0;
+  --m: min(calc(var(--width) / 960), calc(var(--height) / 540));   /* margin */
+  --s: min(calc(var(--width) / 16 - var(--width) / 512), calc(var(--height) / 11));  /* size */
+  
+  --width: 60vw;
+  --height: 80vh;
+}
+
+@media only screen and (orientation: portrait){
+  :root{
+    --width: 99.7vw;
+    --height: 50vh
+  }
+
+}
+
+
+
+.page{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: initial;
+}
+
+.main {
+    display: flex; /* we will talk about this later ... */
+    position: relative;
+}
+  
+  
+.container {
+    font-size: 0; /* disable white space between inline block element */
+    white-space: nowrap;
+    overflow: hidden;
+    min-width: var(--width);
+    height: var(--height);
+    background: black;
+    box-shadow: inset 2px 2px 0px 0px red, 2px 2px 0px 0px blue;    
+}
+
+.row{
+  position: relative;
+}
+
+.hex {
+    min-width: var(--s);
+    margin: var(--m);
+    height: calc(var(--s) * 1.1547);
+    display: inline-block;
+    font-size: initial; /* we reset the font-size if we want to add some content */
+    clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    background: white;   
+    margin-bottom: calc(var(--m) - var(--s) * 0.2886); /* some negative margin to create overlap */
+}
+
