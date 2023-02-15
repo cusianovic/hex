@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-.js
+/.github
 
 
 # testing
@@ -12,6 +12,11 @@
 
 # production
 /build
+/server/*.js
+/server/*d.ts
+/server.js
+/server.d.ts
+
 
 # misc
 .DS_Store
