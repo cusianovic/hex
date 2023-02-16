@@ -58,7 +58,11 @@ const Lobby = () => {
                 if(data.player2 != undefined) setPlayer2(data.player2.UID);
                 setSpectators(data.spectators);
             }
-            
+
+            else if(data.type == 'join' && data.result == false){
+                navigate('...');
+            }
+
             else if(data.type == 'update'){
                 if(data.player1 != undefined) p1 = data.player1.name || data.player1.UID
                 if(data.player2 != undefined) p2 = data.player2.name || data.player2.UID;

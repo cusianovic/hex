@@ -90,8 +90,6 @@ class Lobby{
     }
 
     join(player : User, ws : WebSocket){
-        console.log("Before:")
-        console.log(this.sockets);
 
         if(player.UID in this.sockets){
             this.sockets[player.UID].send(
@@ -99,10 +97,8 @@ class Lobby{
                     type: "close",
                     reason: "Opened on another socket"
                 })
-            )
-
-            console.log("closing old connection");
-            
+            )         
+               
             let tempWS = this.sockets[player.UID];
             this.sockets[player.UID] = ws;
             tempWS.close();
@@ -146,6 +142,12 @@ class Lobby{
         }   
     }
 
+
+    DeleteLobby(){
+        delete tempGameDirectiory[this.LID];
+    }
+
+
     // handles user leaving
     // TODO: FIX MULTIPLE INSTANCE ERRORS
     
@@ -166,6 +168,9 @@ class Lobby{
             this.inGame = false;
         }
 
+        if(!this.player1 && !this.player2 && Object.keys(this.spectators).length == 0){
+            this.DeleteLobby();
+        }
 
         this.BroadcastState();
         sess.destroy();
@@ -179,6 +184,7 @@ class Lobby{
         else if(u.UID in this.spectators) user = this.spectators[u.UID];
         else return false;
 
+        console.log("someone is def leaving");
         if(this.inGame == true && !(u.UID in this.spectators)) this.leaveHandlers[user.UID] = setTimeout(()=>{this.leaveHandler(user, sess)}, 300000);
         else {
             this.leaveHandler(user, sess);

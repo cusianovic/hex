@@ -71,7 +71,7 @@ function createWSS(server : any, sessionParser : any){
             }
         }
         else{
-            console.log("???");
+            console.log("Lobby does't exist");
             ws.send(JSON.stringify({
                 type: 'join',
                 result: false
