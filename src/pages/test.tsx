@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './styles/game.module.css'
 import HexBoard from '../components/board';
+import Button from "@mui/material/Button"
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -16,6 +18,9 @@ const Test = () => {
 
     return(
         <div id={"main"} className={styles.page}>
+            <div className={styles.leave}>
+              <Button startIcon={<ExitToAppIcon/>} sx={{color: "black"}}/>
+            </div>
             <HexBoard boardState={tempState}/> 
         </div>
     )
