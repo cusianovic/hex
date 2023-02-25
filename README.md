@@ -2,6 +2,8 @@
 
 A version of the classic board game [Hex](https://en.wikipedia.org/wiki/Hex_(board_game)) made with React and Express. 
 
+**Play now at [hex.cusianovic.net](https://hex.cusianovic.net/)**
+
 ## Building and Getting Started
 
 #### Instructions
