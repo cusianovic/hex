@@ -97,11 +97,12 @@ class Lobby{
                     type: "close",
                     reason: "Opened on another socket"
                 })
-            )         
-               
+            )
+            
+            console.log("closing old connection");
+            
             let tempWS = this.sockets[player.UID];
             this.sockets[player.UID] = ws;
-            tempWS.close();
         }
 
         if(this.player1?.UID == player.UID) {
@@ -184,7 +185,6 @@ class Lobby{
         else if(u.UID in this.spectators) user = this.spectators[u.UID];
         else return false;
 
-        console.log("someone is def leaving");
         if(this.inGame == true && !(u.UID in this.spectators)) this.leaveHandlers[user.UID] = setTimeout(()=>{this.leaveHandler(user, sess)}, 300000);
         else {
             this.leaveHandler(user, sess);

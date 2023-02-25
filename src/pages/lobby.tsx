@@ -80,6 +80,7 @@ const Lobby = () => {
         const wsCurrent = ws.current;
         
         return() =>{
+            console.log("I AM CLOSING MYSELF");
             wsCurrent.close();
         }
         

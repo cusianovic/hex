@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './styles/home.module.css'
 import Button from '../components/button';
+import Footer from '../components/footer'
 import { Tooltip } from '@mui/material';
 
 async function ajax(nav){
@@ -29,14 +30,18 @@ const Home = () => {
                 <Button variant="contained" onClick={()=>{ajax(navigate)}}>New Game</Button>
                 <Button variant='contained' href='/join'>Join Game</Button>
             </div>
-                <div>
-                    <Tooltip title="Coming soon">
-                        <span>
-                            <Button variant='contained' href='/setting' disabled>Settings</Button>
-                        </span>
-                    </Tooltip>
-                </div>
+            <div>
+                <Button variant='contained' href='https://www.maths.ed.ac.uk/~csangwin/hex/index.html'>How to play</Button>
+            </div>
+            <div>
+                <Tooltip title="Coming soon">
+                    <span>
+                        <Button variant='contained' href='/setting' disabled>Settings</Button>
+                    </span>
+                </Tooltip>
+            </div>
         </div>
+        <Footer/>
     </main>
     )
 }
