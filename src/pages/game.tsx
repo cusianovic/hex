@@ -1,8 +1,13 @@
 import React from 'react';
 import styles from './styles/game.module.css'
 import HexBoard from '../components/board';
-import { useNavigate } from 'react-router-dom';
+import Button from "@mui/material/Button"
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { NavigateFunction, useNavigate } from 'react-router-dom';
 
+function leaveGame(redirect : NavigateFunction){
+  redirect("../..");
+}
 
 const Game = () => {
 
@@ -49,6 +54,9 @@ const Game = () => {
 
     return(
         <div id={"main"} className={styles.page}>
+            <div className={styles.leave}>
+              <Button startIcon={<ExitToAppIcon/>} onClick={()=>{leaveGame(navigate)}}sx={{color: "black"}}/>
+            </div>
           <HexBoard boardState={boardState} ws={ws.current}/>
         </div>
     )

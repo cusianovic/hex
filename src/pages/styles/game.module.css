@@ -18,19 +18,24 @@ body{
 
 @media only screen and (orientation: portrait){
   :root{
-    --width: 99.7vw;
+    --width: 100vw;
     --height: 50vh
   }
 
 }
 
-
+.leave{
+  align-self: flex-start;
+  justify-self: end;
+  position: absolute;
+  margin-top: 5px;
+}
 
 .page{
   width: 100vw;
   height: 100vh;
-  display: flex;
-  align-items: center;
+  display: grid;
+  flex-direction: column;
   justify-content: center;
   flex-wrap: initial;
 }
@@ -38,6 +43,7 @@ body{
 .main {
     display: flex; /* we will talk about this later ... */
     position: relative;
+    align-self: center;
 }
   
   
@@ -48,7 +54,13 @@ body{
     min-width: var(--width);
     height: var(--height);
     background: black;
-    box-shadow: inset 2px 2px 0px 0px red, 2px 2px 0px 0px blue;    
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border-top: solid 2px red;
+    border-bottom: solid 2px red;
+    border-left: solid 2px blue;
+    border-right: solid 2px blue;   
 }
 
 .row{
