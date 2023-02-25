@@ -5,7 +5,8 @@ import Button from "@mui/material/Button"
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { NavigateFunction, useNavigate } from 'react-router-dom';
 
-function leaveGame(redirect : NavigateFunction){
+function leaveGame(redirect : NavigateFunction, ws : WebSocket){
+  ws.close();
   redirect("../..");
 }
 
@@ -36,7 +37,12 @@ const Game = () => {
       let data = JSON.parse(event.data);
       console.log(data);
       
-      if(data.type == 'update'){
+      if(data.type == 'join' && data.result == false){
+        ws.current.close();
+        navigate('../..');
+      }
+
+      else if(data.type == 'update'){
         if(data.inGame == false) navigate(`../lobby/${lobbyCode}`, {replace: true});
         console.log(data.gameState);
         updateBoardState(data.gameState);
@@ -55,7 +61,7 @@ const Game = () => {
     return(
         <div id={"main"} className={styles.page}>
             <div className={styles.leave}>
-              <Button startIcon={<ExitToAppIcon/>} onClick={()=>{leaveGame(navigate)}}sx={{color: "black"}}/>
+              <Button startIcon={<ExitToAppIcon/>} onClick={()=>{leaveGame(navigate, ws.current)}}sx={{color: "black"}}/>
             </div>
           <HexBoard boardState={boardState} ws={ws.current}/>
         </div>

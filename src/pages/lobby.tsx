@@ -60,7 +60,7 @@ const Lobby = () => {
             }
 
             else if(data.type == 'join' && data.result == false){
-                navigate('...');
+                navigate('../..');
             }
 
             else if(data.type == 'update'){
@@ -103,17 +103,17 @@ const Lobby = () => {
         }}>
             <Box className={styles.lobbyHeader}>Lobby</Box>
             <Grid container spacing={4} columns={16}>
-                <Grid xs={4}/>
-                <PlayerContainer xs={2} sx={{borderColor: "red", background: "RGBA(255, 0, 0, .10)"}}>
+                <Grid xs={0} md={4}/>
+                <PlayerContainer xs={16} md={2} sx={{borderColor: "red", background: "RGBA(255, 0, 0, .10)"}}>
                     {player1}
                 </PlayerContainer>
-                <Grid xs={4} display="flex" justifyContent="center" sx={{userSelect: "none"}}>
+                <Grid xs={16} md={4} display="flex" justifyContent="center" sx={{userSelect: "none"}}>
                     <div>VS</div>
                 </Grid>
-                <PlayerContainer xs={2} sx={{borderColor: "blue", background: "RGBA(0, 0, 255, .10)"}}>
+                <PlayerContainer xs={16} md={2} sx={{borderColor: "blue", background: "RGBA(0, 0, 255, .10)"}}>
                     {player2}
                 </PlayerContainer>
-                <Grid xs={4}/>
+                <Grid xs={16} md={0}/>
                 <Grid xs={7}/>
                 <Grid xs={2} display="flex" justifyContent="center">
                     <Button variant='contained' onClick={()=>{ws.current.send(JSON.stringify({type: "start"}))}}>Start Game</Button>
